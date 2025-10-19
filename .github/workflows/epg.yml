@@ -44,15 +44,20 @@ jobs:
             exit 1
           fi
 
-      - name: Get current date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d%H')" >> $GITHUB_OUTPUT  # 生成YYYYMMDD格式的日期
+      - name: Delete existing latest tag (if exists)
+        run: |
+          # 删除本地和远程的旧latest标签（避免冲突）
+          git tag -d latest || true
+          git push origin --delete latest || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and upload release
+      - name: Create and upload release with latest tag
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: epg-${{ steps.date.outputs.DATE }}  # 标签格式：epg-20251019
+          tag_name: latest  # 固定标签为latest
           name: epg  # Release名称保持为epg
           files: |
             t.xml
             t.xml.gz
+          replace_existing: true  # 允许替换同名标签的现有Release
