@@ -1,4 +1,4 @@
-name: epg
+name: Generate t.xml and t.xml.gz
 
 permissions:
   contents: write
@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'  # 每6小时执行一次（UTC时间）
 
 jobs:
   process-xml:
@@ -44,11 +44,21 @@ jobs:
             exit 1
           fi
 
+      - name: Delete existing release and tag
+        run: |
+          # 删除已存在的同名release和tag（避免冲突）
+          gh release delete epg -y || true
+          git tag -d epg || true
+          git push origin --delete epg || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create and upload release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: epg-${{ github.run_id }}  # 用 run_id 替代 sha，避免重复标签
-          name: EPG Update ${{ github.run_id }}
+          tag_name: epg  # 固定标签名
+          name: epg  # 仅保留epg作为release名称
           files: |
             t.xml
             t.xml.gz
+          replace_existing: true  # 替换已存在的同名release
