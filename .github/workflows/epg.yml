@@ -1,10 +1,12 @@
-name: Generate t.xml and t.xml.gz
+name: epg
+
+permissions:
+  contents: write
 
 on:
-  # 支持手动触发和定时触发（每天运行一次）
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时执行一次（UTC时间）
+    - cron: '0 0 * * *'
 
 jobs:
   process-xml:
@@ -15,13 +17,11 @@ jobs:
 
       - name: Set up environment
         run: |
-          # 安装必要工具
           sudo apt-get update
           sudo apt-get install -y xmlstarlet gzip
 
       - name: Download e.xml
         run: |
-          # 下载源XML文件
           curl -o e.xml "http://epg.51zmt.top:8000/e.xml"
           if [ ! -s "e.xml" ]; then
             echo "Failed to download e.xml"
@@ -30,7 +30,6 @@ jobs:
 
       - name: Remove desc field
         run: |
-          # 使用xmlstarlet删除所有desc字段
           xmlstarlet ed -d "//desc" e.xml > t.xml
           if [ ! -s "t.xml" ]; then
             echo "Failed to generate t.xml"
@@ -39,40 +38,17 @@ jobs:
 
       - name: Create gzip archive
         run: |
-          # 生成gzip压缩文件
           gzip -c t.xml > t.xml.gz
           if [ ! -s "t.xml.gz" ]; then
             echo "Failed to generate t.xml.gz"
             exit 1
           fi
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create and upload release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: epg-${{ github.sha }}
-          release_name: EPG Update ${{ github.sha }}
-          draft: false
-          prerelease: false
-
-      - name: Upload t.xml
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./t.xml
-          asset_name: t.xml
-          asset_content_type: application/xml
-
-      - name: Upload t.xml.gz
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./t.xml.gz
-          asset_name: t.xml.gz
-          asset_content_type: application/gzip
+          tag_name: epg-${{ github.run_id }}  # 用 run_id 替代 sha，避免重复标签
+          name: EPG Update ${{ github.run_id }}
+          files: |
+            t.xml
+            t.xml.gz
