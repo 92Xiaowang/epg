@@ -1,0 +1,86 @@
+name: EPG Processor
+
+on:
+  workflow_dispatch:  # 允许手动触发
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时执行一次（UTC时间）
+  push:
+    tags:
+      - 'v*'  # 发布版本时触发
+
+jobs:
+  process-epg:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+        
+    - name: Download and process EPG data
+      run: |
+        # 下载 XML 文件
+        echo "Downloading EPG data..."
+        curl -s -o e.xml http://epg.51zmt.top:8000/e.xml
+        
+        # 检查文件是否下载成功
+        if [ ! -s e.xml ]; then
+          echo "Error: Failed to download EPG data"
+          exit 1
+        fi
+        
+        # 使用 Python 处理 XML，删除 desc 字段
+        echo "Processing XML file..."
+        python << 'EOF'
+import xml.etree.ElementTree as ET
+import gzip
+
+# 解析 XML
+try:
+    tree = ET.parse('e.xml')
+    root = tree.getroot()
+    
+    # 删除所有 desc 字段
+    for desc in root.findall('.//desc'):
+        parent = desc.getparent()
+        if parent is not None:
+            parent.remove(desc)
+    
+    # 保存为 t.xml
+    tree.write('t.xml', encoding='utf-8', xml_declaration=True)
+    print("Successfully processed and saved as t.xml")
+    
+    # 创建 gzip 压缩版本
+    with open('t.xml', 'rb') as f_in:
+        with gzip.open('t.xml.gz', 'wb') as f_out:
+            f_out.writelines(f_in)
+    print("Successfully created t.xml.gz")
+    
+except Exception as e:
+    print(f"Error processing XML: {e}")
+    exit(1)
+EOF
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          t.xml
+          t.xml.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Upload artifacts (for non-release runs)
+      uses: actions/upload-artifact@v4
+      if: "!startsWith(github.ref, 'refs/tags/')"
+      with:
+        name: epg-files
+        path: |
+          t.xml
+          t.xml.gz
+        retention-days: 7
