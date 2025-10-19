@@ -1,13 +1,12 @@
 name: Generate epg
 
 permissions:
-  contents: write
-  packages: write
+  contents: write  # 确保有创建Release的权限
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时执行一次
+    - cron: '0 */6 * * *'
 
 jobs:
   process-xml:
@@ -52,46 +51,38 @@ jobs:
           mkdir -p epg
           cp t.xml epg/t.xml
           cp t.xml.gz epg/t.xml.gz
-          if [ ! -d "epg" ]; then
-            echo "epg folder not created"
-            exit 1
-          fi
-          if [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
-            echo "Files not copied to epg folder"
+          if [ ! -d "epg" ] || [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
+            echo "Files or folder missing"
             exit 1
           fi
 
-      - name: Commit epg folder to repository
+      - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add epg/
-          git commit -m "Update epg files at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
           git push origin main
 
-      - name: Delete existing latest tag
+      - name: Manage latest tag
         run: |
           git tag -d latest || true
           git push origin --delete latest || true
+          git tag -a latest -m "Latest EPG release"  # 重新创建标签
+          git push origin latest  # 推送新标签
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify release files
-        run: |
-          ls -la epg/
-          if [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
-            echo "Release files missing"
-            exit 1
-          fi
-
-      - name: Create and upload release
+      - name: Create正式Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: epg
+          name: EPG 最新发布
           files: |
             epg/t.xml
             epg/t.xml.gz
-          overwrite: true
+          overwrite_files: true
+          draft: false       # 非草稿
+          prerelease: false  # 非预发布
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
