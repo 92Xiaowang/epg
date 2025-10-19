@@ -35,7 +35,7 @@ jobs:
         
         # 使用 Python 处理 XML，删除 desc 字段
         echo "Processing XML file..."
-        python << 'EOF'
+        python3 -c "
 import xml.etree.ElementTree as ET
 import gzip
 
@@ -52,18 +52,18 @@ try:
     
     # 保存为 t.xml
     tree.write('t.xml', encoding='utf-8', xml_declaration=True)
-    print("Successfully processed and saved as t.xml")
+    print('Successfully processed and saved as t.xml')
     
     # 创建 gzip 压缩版本
     with open('t.xml', 'rb') as f_in:
         with gzip.open('t.xml.gz', 'wb') as f_out:
             f_out.writelines(f_in)
-    print("Successfully created t.xml.gz")
+    print('Successfully created t.xml.gz')
     
 except Exception as e:
-    print(f"Error processing XML: {e}")
+    print(f'Error processing XML: {e}')
     exit(1)
-EOF
+"
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
