@@ -1,4 +1,4 @@
-name: Generate t.xml and t.xml.gz
+name: Generate epg
 
 permissions:
   contents: write
