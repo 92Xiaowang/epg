@@ -44,21 +44,15 @@ jobs:
             exit 1
           fi
 
-      - name: Delete existing release and tag
-        run: |
-          # 删除已存在的同名release和tag（避免冲突）
-          gh release delete epg -y || true
-          git tag -d epg || true
-          git push origin --delete epg || true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get current date
+        id: date
+        run: echo "DATE=$(date +'%Y%m%d%H')" >> $GITHUB_OUTPUT  # 生成YYYYMMDD格式的日期
 
       - name: Create and upload release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: epg  # 固定标签名
-          name: epg  # 仅保留epg作为release名称
+          tag_name: epg-${{ steps.date.outputs.DATE }}  # 标签格式：epg-20251019
+          name: epg  # Release名称保持为epg
           files: |
             t.xml
             t.xml.gz
-          replace_existing: true  # 替换已存在的同名release
