@@ -1,12 +1,12 @@
 name: Generate epg
 
 permissions:
-  contents: write
+  contents: write  # 允许提交代码和创建Release
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时执行一次（UTC时间）
+    - cron: '0 */6 * * *'  # 每6小时执行一次
 
 jobs:
   process-xml:
@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # 保留凭证用于提交
 
       - name: Set up environment
         run: |
@@ -44,26 +46,43 @@ jobs:
             exit 1
           fi
 
-      # 新增步骤：创建epg文件夹，并将两个文件保存到该文件夹下
       - name: Save files to epg folder
         run: |
-          mkdir -p epg  # -p确保文件夹不存在时创建，存在则不报错
-          cp t.xml epg/t.xml  # 复制t.xml到epg文件夹
-          cp t.xml.gz epg/t.xml.gz  # 复制t.xml.gz到epg文件夹
+          mkdir -p epg  # 创建epg文件夹（如不存在）
+          cp t.xml epg/t.xml
+          cp t.xml.gz epg/t.xml.gz
+          # 检查文件夹是否创建成功
+          if [ ! -d "epg" ]; then
+            echo "epg folder not created"
+            exit 1
+          fi
+          # 检查文件是否复制成功
+          if [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
+            echo "Files not copied to epg folder"
+            exit 1
+          fi
 
-      - name: Delete existing latest tag (if exists)
+      - name: Commit epg folder to repository
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add epg/  # 添加epg文件夹到暂存区
+          git commit -m "Update epg files at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git push origin main  # 推送到主分支（如分支名不同请修改，例如master）
+
+      - name: Delete existing latest tag
         run: |
           git tag -d latest || true
           git push origin --delete latest || true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and upload release with latest tag
+      - name: Create and upload release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest  # 固定标签为latest
-          name: epg  # Release名称保持为epg
+          tag_name: latest
+          name: epg
           files: |
-            epg/t.xml  # 上传epg文件夹下的t.xml（路径需更新）
-            epg/t.xml.gz  # 上传epg文件夹下的t.xml.gz（路径需更新）
-          replace_existing: true  # 覆盖现有latest标签的Release
+            epg/t.xml
+            epg/t.xml.gz
+          overwrite_files: true  # 替换已存在的文件（替代原replace_existing）
