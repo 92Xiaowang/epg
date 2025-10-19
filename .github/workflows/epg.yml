@@ -1,7 +1,7 @@
 name: Generate epg
 
 permissions:
-  contents: write  # 确保有创建Release的权限
+  contents: write
 
 on:
   workflow_dispatch:
@@ -22,22 +22,74 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y xmlstarlet gzip
 
-      - name: Download e.xml
+      # 下载两个源 XML
+      - name: Download source XMLs
         run: |
-          curl -o e.xml "http://epg.51zmt.top:8000/e.xml"
-          if [ ! -s "e.xml" ]; then
-            echo "Failed to download e.xml"
+          # 第一个源
+          curl -o source1.xml "http://epg.51zmt.top:8000/e.xml"
+          if [ ! -s "source1.xml" ]; then
+            echo "Failed to download source1.xml"
+            exit 1
+          fi
+          
+          # 第二个源
+          curl -o source2.xml "https://raw.githubusercontent.com/plsy1/epg/main/e/seven-days.xml"
+          if [ ! -s "source2.xml" ]; then
+            echo "Failed to download source2.xml"
             exit 1
           fi
 
+      # 合并 XML 并同时去重 channel 和 programme
+      - name: Merge and deduplicate XML
+        run: |
+          # 1. 以第一个 XML 为基础
+          cp source1.xml merged.xml
+          
+          # 2. 提取第二个 XML 的根节点子元素（假设根节点为 <tv>）
+          xmlstarlet sel -t -c "//tv/*" source2.xml > source2_children.xml
+          
+          # 3. 将第二个 XML 的子元素追加到合并文件
+          xmlstarlet ed -a "//tv" -t elem -n "temp" -v "" merged.xml > temp.xml  # 临时节点定位
+          xmlstarlet ed -d "//temp" -i "//tv/*[last()]" -t node -v "$(cat source2_children.xml)" temp.xml > merged.xml
+          
+          # 4. 去重 <channel> 节点（按 display-name，保留第一个）
+          xmlstarlet ed -d "//tv/channel[
+            not(position()=1) and 
+            normalize-space(display-name) = normalize-space(preceding-sibling::channel[1]/display-name)
+          ]" merged.xml > merged_dedup1.xml
+          
+          # 5. 去重 <programme> 节点（按 channel + start + stop，保留第一个）
+          # 逻辑：同一频道（channel属性）在同一时间段（start和stop相同）的节目视为重复
+          xmlstarlet ed -d "//tv/programme[
+            not(position()=1) and 
+            @channel = preceding-sibling::programme[1]/@channel and 
+            @start = preceding-sibling::programme[1]/@start and 
+            @stop = preceding-sibling::programme[1]/@stop
+          ]" merged_dedup1.xml > merged_dedup.xml
+          
+          # 6. 替换为最终去重后的文件
+          mv merged_dedup.xml merged.xml
+          
+          # 7. 验证结果
+          if [ ! -s "merged.xml" ]; then
+            echo "Failed to merge and deduplicate XML"
+            exit 1
+          fi
+          if ! xmlstarlet val merged.xml >/dev/null; then
+            echo "Merged XML is invalid"
+            exit 1
+          fi
+
+      # 移除 desc 字段
       - name: Remove desc field
         run: |
-          xmlstarlet ed -d "//desc" e.xml > t.xml
+          xmlstarlet ed -d "//desc" merged.xml > t.xml
           if [ ! -s "t.xml" ]; then
             echo "Failed to generate t.xml"
             exit 1
           fi
 
+      # 创建压缩包
       - name: Create gzip archive
         run: |
           gzip -c t.xml > t.xml.gz
@@ -46,43 +98,44 @@ jobs:
             exit 1
           fi
 
+      # 保存到 epg 文件夹
       - name: Save files to epg folder
         run: |
           mkdir -p epg
           cp t.xml epg/t.xml
           cp t.xml.gz epg/t.xml.gz
-          if [ ! -d "epg" ] || [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
-            echo "Files or folder missing"
+          if [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
+            echo "Files not copied to epg folder"
             exit 1
           fi
 
-      - name: Commit and push changes
+      # 提交到仓库
+      - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add epg/
-          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
+          git commit -m "Update EPG (merged + channel/programme deduplicated) at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
           git push origin main
 
-      - name: Manage latest tag
+      # 更新 Release
+      - name: Delete existing latest tag
         run: |
           git tag -d latest || true
           git push origin --delete latest || true
-          git tag -a latest -m "Latest EPG release"  # 重新创建标签
-          git push origin latest  # 推送新标签
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create正式Release
+      - name: Create and upload release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: EPG
+          name: Merged EPG (channel/programme deduplicated)
           files: |
             epg/t.xml
             epg/t.xml.gz
           overwrite_files: true
-          draft: false       # 非草稿
-          prerelease: false  # 非预发布
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
