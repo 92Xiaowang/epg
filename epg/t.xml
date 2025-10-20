@@ -19279,7 +19279,7 @@
   <programme start="20251020225500 +0800" stop="20251020233000 +0800" channel="85">
     <title lang="zh">JJ斗地主S3春季赛八强赛4－2重庆�...</title>
   </programme>
-  <programme start="20251020233000 +0800" stop="20251021001900 +0800" channel="85">
+  <programme start="20251020233000 +0800" stop="20251021000000 +0800" channel="85">
     <title lang="zh">JJ斗地主S3春季赛八强赛4－3重庆�...</title>
   </programme>
   <programme start="20251021004500 +0800" stop="20251021012900 +0800" channel="1">
@@ -37761,6 +37761,72 @@
   </programme>
   <programme start="20251021235000 +0800" stop="20251021235959 +0800" channel="6000">
     <title lang="zh">西甲:毕尔巴鄂竞技-巴塞罗那</title>
+  </programme>
+  <programme start="20251021000000 +0800" stop="20251021004200 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021004200 +0800" stop="20251021012800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021012800 +0800" stop="20251021021000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021021000 +0800" stop="20251021024600 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021024600 +0800" stop="20251021031400 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021031400 +0800" stop="20251021040000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021040000 +0800" stop="20251021044000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021044000 +0800" stop="20251021053700 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021053700 +0800" stop="20251021061100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021061100 +0800" stop="20251021070000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021070000 +0800" stop="20251021081100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021081100 +0800" stop="20251021101500 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021101500 +0800" stop="20251021120800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021120800 +0800" stop="20251021134000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021134000 +0800" stop="20251021151100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021151100 +0800" stop="20251021171500 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021171500 +0800" stop="20251021190900 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021190900 +0800" stop="20251021204000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021204000 +0800" stop="20251021215700 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021215700 +0800" stop="20251021230800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021230800 +0800" stop="20251021235900 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251021235900 +0800" stop="20251021235959 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
   </programme>
   <programme start="20251020000000 +0800" stop="20251020005959 +0800" channel="9999">
     <title lang="zh">精彩节目-暂未提供节目预告信息</title>
