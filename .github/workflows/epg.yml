@@ -94,7 +94,7 @@ jobs:
         uses: softprops/action-gh-release@v2  # 使用第三方gh-release动作，版本v2
         with:
           tag_name: latest  # 关联的标签名称为latest
-          name: EPG Updated at $(date +'%Y-%m-%d %H:%M:%S')  # Release名称包含北京时间
+          name: EPG # Release名称
           files: |  # 需要包含在Release中的文件
             epg/t.xml
             epg/t.xml.gz
