@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # 每6小时运行一次
 
 jobs:
   process-xml:
@@ -61,15 +61,16 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add epg/
-          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
+          # 关键修改：添加--allow-empty强制生成提交（即使内容未变）
+          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" --allow-empty || true
           git push origin main
 
       - name: Manage latest tag
         run: |
           git tag -d latest || true
           git push origin --delete latest || true
-          git tag -a latest -m "Latest EPG release"  # 重新创建标签
-          git push origin latest  # 推送新标签
+          git tag -a latest -m "Latest EPG release"
+          git push origin latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -82,7 +83,7 @@ jobs:
             epg/t.xml
             epg/t.xml.gz
           overwrite_files: true
-          draft: false       # 非草稿
-          prerelease: false  # 非预发布
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
