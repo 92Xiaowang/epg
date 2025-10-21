@@ -1,12 +1,12 @@
 name: Generate epg
 
 permissions:
-  contents: write  # 确保有创建Release的权限
+  contents: write
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时运行一次
+    - cron: '0 */6 * * *'
 
 jobs:
   process-xml:
@@ -38,6 +38,11 @@ jobs:
             exit 1
           fi
 
+      - name: Force modify t.xml (ensure content change)
+        run: |
+          # 在XML末尾添加注释（不影响解析，仅改变内容）
+          echo "<!-- Updated at $(date +'%Y-%m-%d %H:%M:%S') -->" >> t.xml
+
       - name: Create gzip archive
         run: |
           gzip -c t.xml > t.xml.gz
@@ -56,18 +61,12 @@ jobs:
             exit 1
           fi
 
-      - name: Force update t.xml modification time
-        run: |
-          # 强制更新t.xml的修改时间为当前时间（即使内容未变）
-          touch epg/t.xml
-
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add epg/
-          # 允许空提交，确保每次运行都有新的提交记录
-          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" --allow-empty || true
+          git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
           git push origin main
 
       - name: Manage latest tag
