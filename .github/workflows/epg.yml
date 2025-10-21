@@ -1,93 +1,101 @@
+# 工作流名称：生成电子节目指南（EPG）
 name: Generate epg
 
+# 权限设置：允许写入仓库内容（用于创建Release等操作）
 permissions:
-  contents: write
+  contents: write  # 确保有创建Release的权限
 
+# 触发条件：支持手动触发和定时触发
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发工作流
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周）
 
+# 定义作业
 jobs:
-  process-xml:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  process-xml:  # 作业名称：处理XML文件
+    runs-on: ubuntu-latest  # 运行环境：最新版Ubuntu系统
+
+    steps:  # 作业步骤
+      - name: Checkout code  # 步骤1：拉取仓库代码
+        uses: actions/checkout@v4  # 使用官方checkout动作，版本v4
         with:
-          persist-credentials: true
+          persist-credentials: true  # 保留凭证，方便以便后续git操作
 
-      - name: Set up environment
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xmlstarlet gzip
+      - name: Set up environment  # 步骤2：配置运行环境
+        run: |  # 执行bash命令
+          sudo apt-get update  # 更新软件源
+          sudo apt-get install -y xmlstarlet gzip  # 安装xmlstarlet（XML处理工具）和gzip（压缩工具）
 
-      - name: Download e.xml
+      - name: Download e.xml  # 步骤3：下载原始EPG文件
         run: |
-          curl -o e.xml "http://epg.51zmt.top:8000/e.xml"
-          if [ ! -s "e.xml" ]; then
-            echo "Failed to download e.xml"
-            exit 1
+          curl -o e.xml "http://epg.51zmt.top:8000/e.xml"  # 使用curl下载文件并保存为e.xml
+          if [ ! -s "e.xml" ]; then  # 检查文件是否下载成功且非空
+            echo "Failed to download e.xml"  # 输出错误信息
+            exit 1  # 退出并返回错误码1
           fi
 
-      - name: Remove desc field
+      - name: Remove desc field and update tv tag  # 步骤4：移除desc字段并更新tv标签信息
         run: |
-          xmlstarlet ed -d "//desc" e.xml > t.xml
-          if [ ! -s "t.xml" ]; then
+          # 先删除所有desc节点，然后替换tv标签的generator_info_name和generator_info_url属性为当前日期
+          xmlstarlet ed \
+            -d "//desc" \
+            -u "//tv/@generator_info_name" -v "Updated at $(date +'%Y-%m-%d %H:%M:%S')" \
+            -u "//tv/@generator_info_url" -v "Updated at $(date +'%Y-%m-%d %H:%M:%S')" \
+            e.xml > t.xml
+          if [ ! -s "t.xml" ]; then  # 检查处理后的文件是否生成成功且非空
             echo "Failed to generate t.xml"
             exit 1
           fi
 
-      - name: Force modify t.xml (ensure content change)
+      - name: Create gzip archive  # 步骤5：创建gzip压缩文件
         run: |
-          # 在XML末尾添加注释（不影响解析，仅改变内容）
-          echo "<!-- Updated at $(date +'%Y-%m-%d %H:%M:%S') -->" >> t.xml
-
-      - name: Create gzip archive
-        run: |
-          gzip -c t.xml > t.xml.gz
-          if [ ! -s "t.xml.gz" ]; then
+          gzip -c t.xml > t.xml.gz  # 将t.xml压缩为t.xml.gz（-c表示输出到标准输出）
+          if [ ! -s "t.xml.gz" ]; then  # 检查压缩文件是否生成成功且非空
             echo "Failed to generate t.xml.gz"
             exit 1
           fi
 
-      - name: Save files to epg folder
+      - name: Save files to epg folder  # 步骤6：将文件保存到epg文件夹
         run: |
-          mkdir -p epg
-          cp t.xml epg/t.xml
-          cp t.xml.gz epg/t.xml.gz
+          mkdir -p epg  # 创建epg文件夹（-p确保父目录存在，若已存在则不报错）
+          cp t.xml epg/t.xml  # 复制t.xml到epg文件夹
+          cp t.xml.gz epg/t.xml.gz  # 复制t.xml.gz到epg文件夹
+          # 检查文件夹和文件是否存在
           if [ ! -d "epg" ] || [ ! -f "epg/t.xml" ] || [ ! -f "epg/t.xml.gz" ]; then
             echo "Files or folder missing"
             exit 1
           fi
 
-      - name: Commit and push changes
+      - name: Commit and push changes  # 步骤7：提交并推送更改到仓库
         run: |
+          # 配置git用户信息（使用GitHub Actions默认身份）
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add epg/
+          git add epg/  # 将epg文件夹添加到暂存区
+          # 提交更改，若没有更改则输出提示信息
           git commit -m "Update epg at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
-          git push origin main
+          git push origin main  # 推送到main分支
 
-      - name: Manage latest tag
+      - name: Manage latest tag  # 步骤8：管理latest标签（确保始终指向最新版本）
         run: |
-          git tag -d latest || true
-          git push origin --delete latest || true
-          git tag -a latest -m "Latest EPG release"
-          git push origin latest
+          git tag -d latest || true  # 删除本地latest标签（若存在）
+          git push origin --delete latest || true  # 删除远程latest标签（若存在）
+          git tag -a latest -m "Latest EPG release"  # 重新创建带注释的latest标签
+          git push origin latest  # 推送新的latest标签到远程仓库
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub提供的令牌进行认证
 
-      - name: Create正式Release
-        uses: softprops/action-gh-release@v2
+      - name: Create正式Release  # 步骤9：创建正式发布版本
+        uses: softprops/action-gh-release@v2  # 使用第三方gh-release动作，版本v2
         with:
-          tag_name: latest
-          name: EPG
-          files: |
+          tag_name: latest  # 关联的标签名称为latest
+          name: EPG  # Release名称
+          files: |  # 需要包含在Release中的文件
             epg/t.xml
             epg/t.xml.gz
-          overwrite_files: true
-          draft: false
-          prerelease: false
+          overwrite_files: true  # 允许覆盖已存在的文件
+          draft: false       # 不设为草稿
+          prerelease: false  # 不设为预发布版本
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub令牌授权
