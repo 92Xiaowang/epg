@@ -44,7 +44,7 @@ jobs:
           # 先删除所有desc节点，然后替换tv标签的generator_info属性为北京时间
           xmlstarlet ed \
             -d "//desc" \
-            -u "//tv/@generator_info_name" -v "Updated at $BEIJING_TIME" \
+            -u "//tv/@generator_info_name" -v "mrwang" \
             -u "//tv/@generator_info_url" -v "Updated at $BEIJING_TIME" \
             e.xml > t.xml
           if [ ! -s "t.xml" ]; then  # 检查处理后的文件是否生成成功且非空
