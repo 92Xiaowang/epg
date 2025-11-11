@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "http://api.torrent-tv.ru/xmltv.dtd">
-<tv generator_info_name="mrwang" generator_info_url="Updated at 2025-11-11 02:31:47">
+<tv generator_info_name="mrwang" generator_info_url="Updated at 2025-11-11 09:45:46">
   <channel id="1">
     <display-name lang="zh">CCTV1</display-name>
   </channel>
@@ -19009,7 +19009,7 @@
   <programme start="20251111211000 +0800" stop="20251111235000 +0800" channel="1303">
     <title lang="zh">新王者女子外卡赛</title>
   </programme>
-  <programme start="20251111235000 +0800" stop="20251111235959 +0800" channel="1303">
+  <programme start="20251111235000 +0800" stop="20251112005000 +0800" channel="1303">
     <title lang="zh">新王者女子</title>
   </programme>
   <programme start="20251111000000 +0800" stop="20251111004200 +0800" channel="85">
@@ -37398,6 +37398,195 @@
   </programme>
   <programme start="20251112233500 +0800" stop="20251112235900 +0800" channel="7249">
     <title lang="zh">实况录像（奥林匹克）-第十五届全国运动会 水球男子金牌赛</title>
+  </programme>
+  <programme start="20251112005000 +0800" stop="20251112015000 +0800" channel="1303">
+    <title lang="zh">新王者女子</title>
+  </programme>
+  <programme start="20251112015000 +0800" stop="20251112035000 +0800" channel="1303">
+    <title lang="zh">新王者女子外卡赛</title>
+  </programme>
+  <programme start="20251112035000 +0800" stop="20251112055000 +0800" channel="1303">
+    <title lang="zh">新王者女子</title>
+  </programme>
+  <programme start="20251112055000 +0800" stop="20251112063000 +0800" channel="1303">
+    <title lang="zh"> 实况足球</title>
+  </programme>
+  <programme start="20251112063000 +0800" stop="20251112073000 +0800" channel="1303">
+    <title lang="zh">新王者女子外卡赛</title>
+  </programme>
+  <programme start="20251112073000 +0800" stop="20251112093000 +0800" channel="1303">
+    <title lang="zh">新王者女子</title>
+  </programme>
+  <programme start="20251112093000 +0800" stop="20251112123000 +0800" channel="1303">
+    <title lang="zh">新王者女子外卡赛</title>
+  </programme>
+  <programme start="20251112123000 +0800" stop="20251112131000 +0800" channel="1303">
+    <title lang="zh"> 实况足球</title>
+  </programme>
+  <programme start="20251112131000 +0800" stop="20251112151000 +0800" channel="1303">
+    <title lang="zh">王者女子</title>
+  </programme>
+  <programme start="20251112151000 +0800" stop="20251112181000 +0800" channel="1303">
+    <title lang="zh">新王者女子外卡赛</title>
+  </programme>
+  <programme start="20251112181000 +0800" stop="20251112201000 +0800" channel="1303">
+    <title lang="zh">王者女子</title>
+  </programme>
+  <programme start="20251112201000 +0800" stop="20251112211000 +0800" channel="1303">
+    <title lang="zh"> 实况足球</title>
+  </programme>
+  <programme start="20251112211000 +0800" stop="20251112235000 +0800" channel="1303">
+    <title lang="zh">新王者女子外卡赛</title>
+  </programme>
+  <programme start="20251112235000 +0800" stop="20251112235959 +0800" channel="1303">
+    <title lang="zh">新王者女子</title>
+  </programme>
+  <programme start="20251112000000 +0800" stop="20251112003000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112003000 +0800" stop="20251112010000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112010000 +0800" stop="20251112013000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112013000 +0800" stop="20251112020000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112020000 +0800" stop="20251112023000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112023000 +0800" stop="20251112030000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112030000 +0800" stop="20251112033000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112033000 +0800" stop="20251112040000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112040000 +0800" stop="20251112043000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112043000 +0800" stop="20251112050000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112050000 +0800" stop="20251112053000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112053000 +0800" stop="20251112060000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112060000 +0800" stop="20251112063000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112063000 +0800" stop="20251112070000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112070000 +0800" stop="20251112073000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112073000 +0800" stop="20251112080000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112080000 +0800" stop="20251112083000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112083000 +0800" stop="20251112090000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112090000 +0800" stop="20251112093000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112093000 +0800" stop="20251112100000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112100000 +0800" stop="20251112103000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112103000 +0800" stop="20251112110000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112110000 +0800" stop="20251112113000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112113000 +0800" stop="20251112120000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112120000 +0800" stop="20251112123000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112123000 +0800" stop="20251112130000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112130000 +0800" stop="20251112133000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112133000 +0800" stop="20251112140000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112140000 +0800" stop="20251112143000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112143000 +0800" stop="20251112150000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112150000 +0800" stop="20251112153000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112153000 +0800" stop="20251112160000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112160000 +0800" stop="20251112163000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112163000 +0800" stop="20251112170000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112170000 +0800" stop="20251112173000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112173000 +0800" stop="20251112180000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112180000 +0800" stop="20251112183000 +0800" channel="6608">
+    <title lang="zh">美丽密码</title>
+  </programme>
+  <programme start="20251112183000 +0800" stop="20251112190000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112190000 +0800" stop="20251112193000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112193000 +0800" stop="20251112195000 +0800" channel="6608">
+    <title lang="zh">和田宣传片</title>
+  </programme>
+  <programme start="20251112195000 +0800" stop="20251112200000 +0800" channel="6608">
+    <title lang="zh">科普好书(1)</title>
+  </programme>
+  <programme start="20251112200000 +0800" stop="20251112203000 +0800" channel="6608">
+    <title lang="zh">美丽密码</title>
+  </programme>
+  <programme start="20251112203000 +0800" stop="20251112210000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112210000 +0800" stop="20251112213000 +0800" channel="6608">
+    <title lang="zh">美丽密码</title>
+  </programme>
+  <programme start="20251112213000 +0800" stop="20251112220000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112220000 +0800" stop="20251112223000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
+  </programme>
+  <programme start="20251112223000 +0800" stop="20251112230000 +0800" channel="6608">
+    <title lang="zh">美丽密码</title>
+  </programme>
+  <programme start="20251112230000 +0800" stop="20251112233000 +0800" channel="6608">
+    <title lang="zh">爱上川菜、寰行迹</title>
+  </programme>
+  <programme start="20251112233000 +0800" stop="20251113000000 +0800" channel="6608">
+    <title lang="zh">乡间物语、小导游大视界</title>
   </programme>
   <programme start="20251111000000 +0800" stop="20251111005959 +0800" channel="9999">
     <title lang="zh">精彩节目-暂未提供节目预告信息</title>
