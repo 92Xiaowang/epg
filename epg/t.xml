@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "http://api.torrent-tv.ru/xmltv.dtd">
-<tv generator_info_name="mrwang" generator_info_url="Updated at 2025-12-08 02:29:50">
+<tv generator_info_name="mrwang" generator_info_url="Updated at 2025-12-08 09:49:45">
   <channel id="1">
     <display-name lang="zh">CCTV1</display-name>
   </channel>
@@ -19000,7 +19000,7 @@
   <programme start="20251208231000 +0800" stop="20251208235900 +0800" channel="85">
     <title lang="zh">JJ斗地主S3春季赛八强赛4－3重庆�...</title>
   </programme>
-  <programme start="20251208235900 +0800" stop="20251209003400 +0800" channel="85">
+  <programme start="20251208235900 +0800" stop="20251209000000 +0800" channel="85">
     <title lang="zh">JJ斗地主S3春季赛八强赛4－2重庆�...</title>
   </programme>
   <programme start="20251209004900 +0800" stop="20251209013300 +0800" channel="1">
@@ -37542,6 +37542,72 @@
   </programme>
   <programme start="20251209235000 +0800" stop="20251209235959 +0800" channel="1303">
     <title lang="zh">新王者女子</title>
+  </programme>
+  <programme start="20251209000000 +0800" stop="20251209004200 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209004200 +0800" stop="20251209012800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209012800 +0800" stop="20251209021000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209021000 +0800" stop="20251209024600 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209024600 +0800" stop="20251209031400 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209031400 +0800" stop="20251209040000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209040000 +0800" stop="20251209044000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209044000 +0800" stop="20251209053700 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209053700 +0800" stop="20251209061100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209061100 +0800" stop="20251209070000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209070000 +0800" stop="20251209081100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209081100 +0800" stop="20251209101500 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209101500 +0800" stop="20251209120800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209120800 +0800" stop="20251209134000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209134000 +0800" stop="20251209151100 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209151100 +0800" stop="20251209171500 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209171500 +0800" stop="20251209190900 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209190900 +0800" stop="20251209204000 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209204000 +0800" stop="20251209215700 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209215700 +0800" stop="20251209230800 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209230800 +0800" stop="20251209235900 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
+  </programme>
+  <programme start="20251209235900 +0800" stop="20251209235959 +0800" channel="85">
+    <title lang="zh">游戏LOL全明星赛事精选</title>
   </programme>
   <programme start="20251208000000 +0800" stop="20251208005959 +0800" channel="9999">
     <title lang="zh">精彩节目-暂未提供节目预告信息</title>
