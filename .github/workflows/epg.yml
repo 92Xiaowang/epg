@@ -52,8 +52,10 @@ jobs:
           # 第一步：先移除所有desc节点并更新tv标签属性
           xmlstarlet ed \
             -d "//desc" \
-            -u "//tv/@generator_info_name" -v "mrwang" \
-            -u "//tv/@generator_info_url" -v "Updated at $BEIJING_TIME" \
+            -d "//tv/@source-info-name" \
+            -d "//tv/@source-info-url" \
+            -u "//tv/@generator-info-name" -v "mrwang" \
+            -u "//tv/@generator-info-url" -v "Updated at $BEIJING_TIME" \
             e.xml > temp1.xml
           
           # 第二步：筛选只保留今天和明天的节目
