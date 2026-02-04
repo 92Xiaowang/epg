@@ -9,7 +9,7 @@ permissions:
 on:
   workflow_dispatch:  # 允许手动触发工作流
   schedule:
-    - cron: '0 */6 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
+    - cron: '0 */8 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
 
 # 定义作业
 jobs:
@@ -31,13 +31,13 @@ jobs:
 
       - name: Download e.xml  # 步骤3：下载原始EPG文件
         run: |
-          curl -o e.xml "https://epg.pw/xmltv/epg_CN.xml"  # 使用curl下载文件并保存为e.xml
+          curl -o e.xml "http://epg.51zmt.top:8000/e1.xml"  # 使用curl下载文件并保存为e.xml
           if [ ! -s "e.xml" ]; then  # 检查文件是否下载成功且非空
             echo "Failed to download e.xml"  # 输出错误信息
             exit 1  # 退出并返回错误码1
           fi
 
-      - name: Filter today and tomorrow's programs  # 步骤4：筛选今天和明天的节目，移除desc字段并更新tv标签信息
+      - name: Process XML and filter programs  # 步骤4：处理XML，筛选今天和明天的节目
         run: |
           # 获取当前北京时间的日期部分（格式：YYYYMMDD）
           TODAY=$(date +'%Y%m%d')
@@ -48,23 +48,27 @@ jobs:
           
           echo "保留日期范围：今天($TODAY) 和 明天($TOMORROW)"
           
-          # 使用临时文件进行两步处理
-          # 第一步：先移除所有desc节点并更新tv标签属性
+          # 使用xmlstarlet处理XML
+          # 1. 移除所有desc节点
+          # 2. 移除tv标签除generator-info-name外的所有其他属性
+          # 3. 设置generator-info-name为mrwang
+          # 4. 添加date属性
+          # 5. 筛选只保留今天和明天的节目
           xmlstarlet ed \
             -d "//desc" \
-            -d "//tv/@source-info-name" \
-            -d "//tv/@source-info-url" \
+            -d "//tv/@*[name() != 'generator-info-name']" \
             -u "//tv/@generator-info-name" -v "mrwang" \
-            -u "//tv/@generator-info-url" -v "Updated at $BEIJING_TIME" \
-            e.xml > temp1.xml
+            -i "//tv[not(@date)]" -t attr -n "date" -v "$BEIJING_TIME" \
+            -u "//tv/@date" -v "$BEIJING_TIME" \
+            e.xml > temp.xml
           
-          # 第二步：筛选只保留今天和明天的节目
+          # 筛选只保留今天和明天的节目
           xmlstarlet ed \
             -d "//programme[not(contains(@start, '$TODAY') or contains(@start, '$TOMORROW'))]" \
-            temp1.xml > t.xml
+            temp.xml > t.xml
           
           # 清理临时文件
-          rm -f temp1.xml
+          rm -f temp.xml
           
           if [ ! -s "t.xml" ]; then  # 检查处理后的文件是否生成成功且非空
             echo "Failed to generate t.xml"
@@ -80,6 +84,10 @@ jobs:
           TOMORROW_COUNT=$(xmlstarlet sel -t -v "count(//programme[contains(@start, '$TOMORROW')])" t.xml)
           echo "今天节目数量: $TODAY_COUNT"
           echo "明天节目数量: $TOMORROW_COUNT"
+          
+          # 验证tv标签属性
+          echo "=== 验证tv标签属性 ==="
+          xmlstarlet sel -t -m "//tv" -o "tv: " -v "@generator-info-name" -o ", date: " -v "@date" -n t.xml
 
       - name: Create gzip archive  # 步骤5：创建gzip压缩文件
         run: |
