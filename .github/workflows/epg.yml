@@ -9,7 +9,8 @@ permissions:
 on:
   workflow_dispatch:  # 允许手动触发工作流
   schedule:
-    - cron: '0 */8 * * *' # 定时触发，每8小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
+ #   - cron: '0 */6 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
+     - cron: '0 0 * * *' # 改为每天UTC时间0点执行（对应北京时间早上8点）
 
 # 定义作业
 jobs:
@@ -37,23 +38,38 @@ jobs:
             exit 1  # 退出并返回错误码1
           fi
 
-      - name: Process XML and filter programs  # 步骤4：处理XML，筛选今天和明天的节目
+      - name: Process XML and filter programs  # 步骤4：处理XML，筛选前五天、今天和明天的节目
         run: |
           # 获取当前北京时间的日期部分（格式：YYYYMMDD）
           TODAY=$(date +'%Y%m%d')
           # 获取明天北京时间的日期部分
           TOMORROW=$(date -d '+1 day' +'%Y%m%d')
+          # 获取前5天的日期（从今天往前推5天）
+          FIVE_DAYS_AGO=$(date -d '-5 days' +'%Y%m%d')
           # 获取当前北京时间（格式：年-月-日 时:分:秒）
           BEIJING_TIME=$(date +'%Y-%m-%d %H:%M:%S')
           
-          echo "保留日期范围：今天($TODAY) 和 明天($TOMORROW)"
+          echo "保留日期范围：前五天($FIVE_DAYS_AGO) 到 明天($TOMORROW)"
+          
+          # 生成日期筛选条件
+          DATE_FILTER=""
+          current_date=$(date -d '-5 days' +'%Y%m%d')
+          # 循环生成从今天往前推5天到明天的日期条件
+          for i in $(seq 0 6); do
+            DATE=$(date -d "$FIVE_DAYS_AGO +${i} days" +'%Y%m%d')
+            if [ "$i" -eq 0 ]; then
+              DATE_FILTER="contains(@start, '$DATE')"
+            else
+              DATE_FILTER="$DATE_FILTER or contains(@start, '$DATE')"
+            fi
+          done
           
           # 使用xmlstarlet处理XML
           # 1. 移除所有desc节点
           # 2. 移除tv标签除generator-info-name外的所有其他属性
           # 3. 设置generator-info-name为mrwang
           # 4. 添加date属性
-          # 5. 筛选只保留今天和明天的节目
+          # 5. 筛选只保留前五天、今天和明天的节目
           xmlstarlet ed \
             -d "//desc" \
             -d "//tv/@*[name() != 'generator-info-name']" \
@@ -62,9 +78,9 @@ jobs:
             -u "//tv/@date" -v "$BEIJING_TIME" \
             e.xml > temp.xml
           
-          # 筛选只保留今天和明天的节目
+          # 筛选只保留前五天、今天和明天的节目
           xmlstarlet ed \
-            -d "//programme[not(contains(@start, '$TODAY') or contains(@start, '$TOMORROW'))]" \
+            -d "//programme[not($DATE_FILTER)]" \
             temp.xml > t.xml
           
           # 清理临时文件
@@ -77,13 +93,17 @@ jobs:
           
           # 输出过滤后的节目数量统计
           PROGRAM_COUNT=$(xmlstarlet sel -t -v "count(//programme)" t.xml)
-          echo "保留的节目数量: $PROGRAM_COUNT"
+          echo "保留的节目总数: $PROGRAM_COUNT"
           
-          # 分别统计今天和明天的节目数量
-          TODAY_COUNT=$(xmlstarlet sel -t -v "count(//programme[contains(@start, '$TODAY')])" t.xml)
-          TOMORROW_COUNT=$(xmlstarlet sel -t -v "count(//programme[contains(@start, '$TOMORROW')])" t.xml)
-          echo "今天节目数量: $TODAY_COUNT"
-          echo "明天节目数量: $TOMORROW_COUNT"
+          # 统计每天的节目数量
+          echo "=== 各日期节目数量统计 ==="
+          current_date=$(date -d '-5 days' +'%Y%m%d')
+          for i in $(seq 0 6); do
+            DATE=$(date -d "$FIVE_DAYS_AGO +${i} days" +'%Y%m%d')
+            DATE_FORMATTED=$(date -d "$DATE" +'%Y-%m-%d')
+            COUNT=$(xmlstarlet sel -t -v "count(//programme[contains(@start, '$DATE')])" t.xml)
+            echo "$DATE_FORMATTED: $COUNT 个节目"
+          done
           
           # 验证tv标签属性
           echo "=== 验证tv标签属性 ==="
