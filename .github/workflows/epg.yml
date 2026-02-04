@@ -9,7 +9,7 @@ permissions:
 on:
   workflow_dispatch:  # 允许手动触发工作流
   schedule:
-    - cron: '0 */8 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
+    - cron: '0 */8 * * *' # 定时触发，每8小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
 
 # 定义作业
 jobs:
