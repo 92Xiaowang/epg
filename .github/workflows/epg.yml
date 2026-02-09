@@ -9,8 +9,7 @@ permissions:
 on:
   workflow_dispatch:  # 允许手动触发工作流
   schedule:
-     - cron: '0 */6 * * *'  # 定时触发，每6小时执行一次（分 时 日 月 周，GitHub Actions默认使用UTC时间，实际执行时间为UTC+8的10:00、16:00、22:00、04:00）
-  #   - cron: '0 0 * * *' # 改为每天UTC时间0点执行（对应北京时间早上8点）
+    - cron: '0 */6 * * *'  # 定时触发，每6小时执行一次（UTC时间0、6、12、18点，对应北京时间8、14、20、次日2点）
 
 # 定义作业
 jobs:
@@ -50,6 +49,7 @@ jobs:
           BEIJING_TIME=$(date +'%Y-%m-%d %H:%M:%S')
           
           echo "保留日期范围：前五天($FIVE_DAYS_AGO) 到 明天($TOMORROW)"
+          echo "当前北京时间：$BEIJING_TIME"
           
           # 生成日期筛选条件
           DATE_FILTER=""
@@ -63,6 +63,8 @@ jobs:
               DATE_FILTER="$DATE_FILTER or contains(@start, '$DATE')"
             fi
           done
+          
+          echo "日期筛选条件：$DATE_FILTER"
           
           # 使用xmlstarlet处理XML
           # 1. 移除所有desc节点
