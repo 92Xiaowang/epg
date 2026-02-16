@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="mrwang" date="2026-02-16 02:26:41">
+<tv generator-info-name="mrwang" date="2026-02-16 09:27:21">
   <channel id="1">
     <display-name lang="zh">CCTV1</display-name>
   </channel>
@@ -348,6 +348,9 @@
   </channel>
   <channel id="933">
     <display-name lang="zh">云南都市</display-name>
+  </channel>
+  <channel id="934">
+    <display-name lang="zh">云南影视</display-name>
   </channel>
   <channel id="936">
     <display-name lang="zh">云南少儿</display-name>
@@ -6153,6 +6156,75 @@
   </programme>
   <programme start="20260216234500 +0800" stop="20260216000000 +0800" channel="1967">
     <title>民生剧好看</title>
+  </programme>
+  <programme start="20260216001800 +0800" stop="20260216002700 +0800" channel="934">
+    <title>影视气象站</title>
+  </programme>
+  <programme start="20260216002700 +0800" stop="20260216013000 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260216013000 +0800" stop="20260216031000 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260216031000 +0800" stop="20260216032500 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260216032500 +0800" stop="20260216064800 +0800" channel="934">
+    <title>晚间节目结束</title>
+  </programme>
+  <programme start="20260216064800 +0800" stop="20260216070600 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260216070600 +0800" stop="20260216085600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260216085600 +0800" stop="20260216102200 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260216102200 +0800" stop="20260216111400 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260216111400 +0800" stop="20260216113100 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260216113100 +0800" stop="20260216125500 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260216125500 +0800" stop="20260216131800 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260216131800 +0800" stop="20260216151700 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260216151700 +0800" stop="20260216153800 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260216153800 +0800" stop="20260216164500 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260216164500 +0800" stop="20260216165500 +0800" channel="934">
+    <title>晚间节目开播</title>
+  </programme>
+  <programme start="20260216165500 +0800" stop="20260216184600 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260216184600 +0800" stop="20260216190900 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260216190900 +0800" stop="20260216205600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260216205600 +0800" stop="20260216211200 +0800" channel="934">
+    <title>调剂节目</title>
+  </programme>
+  <programme start="20260216211200 +0800" stop="20260216220700 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260216220700 +0800" stop="20260216221800 +0800" channel="934">
+    <title>车影视界</title>
+  </programme>
+  <programme start="20260216221800 +0800" stop="20260216001800 +0800" channel="934">
+    <title>天下电影</title>
   </programme>
   <programme start="20260216000000 +0800" stop="20260216004300 +0800" channel="933">
     <title>精彩节目</title>
@@ -32866,6 +32938,75 @@
   <programme start="20260217234500 +0800" stop="20260217000000 +0800" channel="1967">
     <title>民生剧好看</title>
   </programme>
+  <programme start="20260217001800 +0800" stop="20260217002700 +0800" channel="934">
+    <title>影视气象站</title>
+  </programme>
+  <programme start="20260217002700 +0800" stop="20260217013000 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260217013000 +0800" stop="20260217031000 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260217031000 +0800" stop="20260217032500 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260217032500 +0800" stop="20260217064800 +0800" channel="934">
+    <title>晚间节目结束</title>
+  </programme>
+  <programme start="20260217064800 +0800" stop="20260217070600 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260217070600 +0800" stop="20260217085600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260217085600 +0800" stop="20260217102200 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260217102200 +0800" stop="20260217111400 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260217111400 +0800" stop="20260217113100 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260217113100 +0800" stop="20260217125500 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260217125500 +0800" stop="20260217131800 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260217131800 +0800" stop="20260217151700 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260217151700 +0800" stop="20260217153800 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260217153800 +0800" stop="20260217164500 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260217164500 +0800" stop="20260217165500 +0800" channel="934">
+    <title>晚间节目开播</title>
+  </programme>
+  <programme start="20260217165500 +0800" stop="20260217184600 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260217184600 +0800" stop="20260217190900 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260217190900 +0800" stop="20260217205600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260217205600 +0800" stop="20260217211200 +0800" channel="934">
+    <title>调剂节目</title>
+  </programme>
+  <programme start="20260217211200 +0800" stop="20260217220700 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260217220700 +0800" stop="20260217221800 +0800" channel="934">
+    <title>车影视界</title>
+  </programme>
+  <programme start="20260217221800 +0800" stop="20260217001800 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
   <programme start="20260217000000 +0800" stop="20260217000100 +0800" channel="933">
     <title>精彩节目</title>
   </programme>
@@ -41075,6 +41216,45 @@
   </programme>
   <programme start="20260217233000 +0800" stop="20260217000000 +0800" channel="1945">
     <title>雪莲花动漫剧场/汉</title>
+  </programme>
+  <programme start="20260217011000 +0800" stop="20260217030000 +0800" channel="1943">
+    <title>天气预报</title>
+  </programme>
+  <programme start="20260217030000 +0800" stop="20260217043000 +0800" channel="1943">
+    <title>经典影院</title>
+  </programme>
+  <programme start="20260217043000 +0800" stop="20260217090000 +0800" channel="1943">
+    <title>午夜影院</title>
+  </programme>
+  <programme start="20260217090000 +0800" stop="20260217094300 +0800" channel="1943">
+    <title>看电影</title>
+  </programme>
+  <programme start="20260217094300 +0800" stop="20260217114000 +0800" channel="1943">
+    <title>生活影院</title>
+  </programme>
+  <programme start="20260217114000 +0800" stop="20260217124000 +0800" channel="1943">
+    <title>新电影传奇</title>
+  </programme>
+  <programme start="20260217124000 +0800" stop="20260217150000 +0800" channel="1943">
+    <title>青春影院</title>
+  </programme>
+  <programme start="20260217150000 +0800" stop="20260217190000 +0800" channel="1943">
+    <title>新疆羊肉串百姓剧</title>
+  </programme>
+  <programme start="20260217190000 +0800" stop="20260217194800 +0800" channel="1943">
+    <title>新电影传奇</title>
+  </programme>
+  <programme start="20260217194800 +0800" stop="20260217201800 +0800" channel="1943">
+    <title>看电影</title>
+  </programme>
+  <programme start="20260217201800 +0800" stop="20260217210000 +0800" channel="1943">
+    <title>新疆羊肉串百姓剧</title>
+  </programme>
+  <programme start="20260217210000 +0800" stop="20260217230000 +0800" channel="1943">
+    <title>钻石影院I</title>
+  </programme>
+  <programme start="20260217230000 +0800" stop="20260217011000 +0800" channel="1943">
+    <title>钻石影院2</title>
   </programme>
   <programme start="20260217000000 +0800" stop="20260217001400 +0800" channel="1942">
     <title>《2026新疆国际春节联欢晚会》</title>
