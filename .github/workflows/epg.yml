@@ -29,13 +29,28 @@ jobs:
           sudo ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  # 设置系统时区为北京时间（Asia/Shanghai）
           echo "Asia/Shanghai" | sudo tee /etc/timezone  # 写入时区配置
 
-      - name: Download e.xml  # 步骤3：下载原始EPG文件
+      - name: Download and extract sggc.xml.gz  # 步骤3：下载并解压EPG文件
         run: |
-          curl -o e.xml "http://epg.51zmt.top:8000/e1.xml"  # 使用curl下载文件并保存为e.xml
-          if [ ! -s "e.xml" ]; then  # 检查文件是否下载成功且非空
-            echo "Failed to download e.xml"  # 输出错误信息
-            exit 1  # 退出并返回错误码1
+          # 下载gzip压缩文件
+          curl -o sggc.xml.gz "https://raw.githubusercontent.com/sggc/SD-EPG/main/EPG/sggc.xml.gz"
+          if [ ! -s "sggc.xml.gz" ]; then  # 检查文件是否下载成功且非空
+            echo "Failed to download sggc.xml.gz"
+            exit 1
           fi
+          
+          # 解压文件得到e.xml
+          gunzip -c sggc.xml.gz > e.xml
+          if [ ! -s "e.xml" ]; then  # 检查解压后的文件是否成功且非空
+            echo "Failed to extract e.xml"
+            exit 1
+          fi
+          
+          # 输出文件大小信息
+          echo "Downloaded sggc.xml.gz size: $(du -h sggc.xml.gz | cut -f1)"
+          echo "Extracted e.xml size: $(du -h e.xml | cut -f1)"
+          
+          # 清理压缩文件（可选）
+          rm -f sggc.xml.gz
 
       - name: Process XML and filter programs  # 步骤4：处理XML，筛选前五天、今天和明天的节目
         run: |
