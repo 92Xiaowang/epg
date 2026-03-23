@@ -349,6 +349,9 @@
   <channel id="933">
     <display-name lang="zh">云南都市</display-name>
   </channel>
+  <channel id="934">
+    <display-name lang="zh">云南影视</display-name>
+  </channel>
   <channel id="936">
     <display-name lang="zh">云南少儿</display-name>
   </channel>
@@ -807,6 +810,12 @@
   </channel>
   <channel id="2002">
     <display-name lang="zh">湖南爱晚</display-name>
+  </channel>
+  <channel id="2007">
+    <display-name lang="zh">山东文旅</display-name>
+  </channel>
+  <channel id="2008">
+    <display-name lang="zh">山东新闻</display-name>
   </channel>
   <channel id="2011">
     <display-name lang="zh">江西都市</display-name>
@@ -6769,6 +6778,75 @@
   <programme start="20260323234500 +0800" stop="20260324000000 +0800" channel="1967">
     <title>民生剧好看</title>
   </programme>
+  <programme start="20260323001800 +0800" stop="20260323002700 +0800" channel="934">
+    <title>影视气象站</title>
+  </programme>
+  <programme start="20260323002700 +0800" stop="20260323013000 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260323013000 +0800" stop="20260323031000 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260323031000 +0800" stop="20260323032500 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260323032500 +0800" stop="20260323064800 +0800" channel="934">
+    <title>晚间节目结束</title>
+  </programme>
+  <programme start="20260323064800 +0800" stop="20260323070600 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260323070600 +0800" stop="20260323085600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260323085600 +0800" stop="20260323102200 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260323102200 +0800" stop="20260323111400 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260323111400 +0800" stop="20260323113100 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260323113100 +0800" stop="20260323125500 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260323125500 +0800" stop="20260323131800 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260323131800 +0800" stop="20260323151700 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260323151700 +0800" stop="20260323153800 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260323153800 +0800" stop="20260323164500 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260323164500 +0800" stop="20260323165500 +0800" channel="934">
+    <title>晚间节目开播</title>
+  </programme>
+  <programme start="20260323165500 +0800" stop="20260323184600 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260323184600 +0800" stop="20260323190900 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260323190900 +0800" stop="20260323205600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260323205600 +0800" stop="20260323211200 +0800" channel="934">
+    <title>调剂节目</title>
+  </programme>
+  <programme start="20260323211200 +0800" stop="20260323220700 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260323220700 +0800" stop="20260323221800 +0800" channel="934">
+    <title>车影视界</title>
+  </programme>
+  <programme start="20260323221800 +0800" stop="20260324001800 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
   <programme start="20260323000000 +0800" stop="20260323004300 +0800" channel="933">
     <title>精彩节目</title>
   </programme>
@@ -12601,6 +12679,294 @@
   </programme>
   <programme start="20260323230500 +0800" stop="20260323233700 +0800" channel="732">
     <title>动画片</title>
+  </programme>
+  <programme start="20260323000000 +0800" stop="20260323054500 +0800" channel="2007">
+    <title>馆长来了</title>
+  </programme>
+  <programme start="20260323054500 +0800" stop="20260323063600 +0800" channel="2007">
+    <title>玉鉴文明</title>
+  </programme>
+  <programme start="20260323063600 +0800" stop="20260323072800 +0800" channel="2007">
+    <title>玉鉴文明</title>
+  </programme>
+  <programme start="20260323072800 +0800" stop="20260323082700 +0800" channel="2007">
+    <title>纪录片：春秋</title>
+  </programme>
+  <programme start="20260323082700 +0800" stop="20260323084700 +0800" channel="2007">
+    <title>行进中国</title>
+  </programme>
+  <programme start="20260323084700 +0800" stop="20260323093000 +0800" channel="2007">
+    <title>光影视界</title>
+  </programme>
+  <programme start="20260323093000 +0800" stop="20260323101200 +0800" channel="2007">
+    <title>专题</title>
+  </programme>
+  <programme start="20260323101200 +0800" stop="20260323113700 +0800" channel="2007">
+    <title>光影视界</title>
+  </programme>
+  <programme start="20260323113700 +0800" stop="20260323122000 +0800" channel="2007">
+    <title>专题</title>
+  </programme>
+  <programme start="20260323122000 +0800" stop="20260323123200 +0800" channel="2007">
+    <title>“儒”此有趣</title>
+  </programme>
+  <programme start="20260323123200 +0800" stop="20260323130900 +0800" channel="2007">
+    <title>文旅网络视听节目展播</title>
+  </programme>
+  <programme start="20260323130900 +0800" stop="20260323133800 +0800" channel="2007">
+    <title>家有藏宝</title>
+  </programme>
+  <programme start="20260323133800 +0800" stop="20260323142200 +0800" channel="2007">
+    <title>纪录片：大河之洲</title>
+  </programme>
+  <programme start="20260323142200 +0800" stop="20260323143300 +0800" channel="2007">
+    <title>“国宝”时刻</title>
+  </programme>
+  <programme start="20260323143300 +0800" stop="20260323150300 +0800" channel="2007">
+    <title>家有藏宝</title>
+  </programme>
+  <programme start="20260323150300 +0800" stop="20260323154500 +0800" channel="2007">
+    <title>专题</title>
+  </programme>
+  <programme start="20260323154500 +0800" stop="20260323160700 +0800" channel="2007">
+    <title>山东文旅报道</title>
+  </programme>
+  <programme start="20260323160700 +0800" stop="20260323165000 +0800" channel="2007">
+    <title>纪录片：长山列岛</title>
+  </programme>
+  <programme start="20260323165000 +0800" stop="20260323172000 +0800" channel="2007">
+    <title>齐鲁青未了</title>
+  </programme>
+  <programme start="20260323172000 +0800" stop="20260323182300 +0800" channel="2007">
+    <title>齐鲁青未了</title>
+  </programme>
+  <programme start="20260323182300 +0800" stop="20260323185500 +0800" channel="2007">
+    <title>齐鲁青未了</title>
+  </programme>
+  <programme start="20260323185500 +0800" stop="20260323193200 +0800" channel="2007">
+    <title>文旅网络视听节目展播</title>
+  </programme>
+  <programme start="20260323193200 +0800" stop="20260323195100 +0800" channel="2007">
+    <title>山东文旅报道</title>
+  </programme>
+  <programme start="20260323195100 +0800" stop="20260323204800 +0800" channel="2007">
+    <title>家有藏宝</title>
+  </programme>
+  <programme start="20260323204800 +0800" stop="20260323212000 +0800" channel="2007">
+    <title>家有藏宝</title>
+  </programme>
+  <programme start="20260323212000 +0800" stop="20260323221200 +0800" channel="2007">
+    <title>玉鉴文明</title>
+  </programme>
+  <programme start="20260323221200 +0800" stop="20260323225600 +0800" channel="2007">
+    <title>翡翠奇缘</title>
+  </programme>
+  <programme start="20260323225600 +0800" stop="20260323235000 +0800" channel="2007">
+    <title>玉鉴文明</title>
+  </programme>
+  <programme start="20260323235000 +0800" stop="20260324020000 +0800" channel="2007">
+    <title>馆长来了</title>
+  </programme>
+  <programme start="20260323000000 +0800" stop="20260323004900 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323004900 +0800" stop="20260323011900 +0800" channel="2008">
+    <title>理响中国</title>
+  </programme>
+  <programme start="20260323011900 +0800" stop="20260323012700 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323012700 +0800" stop="20260323013200 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323013200 +0800" stop="20260323015600 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323015600 +0800" stop="20260323023600 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323023600 +0800" stop="20260323030600 +0800" channel="2008">
+    <title>理响中国</title>
+  </programme>
+  <programme start="20260323030600 +0800" stop="20260323031400 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323031400 +0800" stop="20260323031900 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323031900 +0800" stop="20260323035900 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323035900 +0800" stop="20260323040700 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323040700 +0800" stop="20260323044700 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323044700 +0800" stop="20260323045500 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323045500 +0800" stop="20260323051900 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323051900 +0800" stop="20260323053000 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323053000 +0800" stop="20260323055000 +0800" channel="2008">
+    <title>五洲四海山东人</title>
+  </programme>
+  <programme start="20260323055000 +0800" stop="20260323063000 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323063000 +0800" stop="20260323065600 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323065600 +0800" stop="20260323073200 +0800" channel="2008">
+    <title>早安山东</title>
+  </programme>
+  <programme start="20260323073200 +0800" stop="20260323080800 +0800" channel="2008">
+    <title>早安山东</title>
+  </programme>
+  <programme start="20260323080800 +0800" stop="20260323083300 +0800" channel="2008">
+    <title>山东新闻联播</title>
+  </programme>
+  <programme start="20260323083300 +0800" stop="20260323090100 +0800" channel="2008">
+    <title>记住乡愁十</title>
+  </programme>
+  <programme start="20260323090100 +0800" stop="20260323090700 +0800" channel="2008">
+    <title>光耀齐鲁(新闻频道80集)-49 王吉文</title>
+  </programme>
+  <programme start="20260323090700 +0800" stop="20260323091300 +0800" channel="2008">
+    <title>光耀齐鲁(新闻频道80集)-50 郭继胜</title>
+  </programme>
+  <programme start="20260323091300 +0800" stop="20260323100000 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323100000 +0800" stop="20260323103200 +0800" channel="2008">
+    <title>闪电直播间</title>
+  </programme>
+  <programme start="20260323103200 +0800" stop="20260323105600 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323105600 +0800" stop="20260323110600 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323110600 +0800" stop="20260323111300 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323111300 +0800" stop="20260323113000 +0800" channel="2008">
+    <title>共产党员</title>
+  </programme>
+  <programme start="20260323113000 +0800" stop="20260323123000 +0800" channel="2008">
+    <title>新闻午班车</title>
+  </programme>
+  <programme start="20260323123000 +0800" stop="20260323123200 +0800" channel="2008">
+    <title>山东省海洋预报</title>
+  </programme>
+  <programme start="20260323123200 +0800" stop="20260323125200 +0800" channel="2008">
+    <title>品牌山东</title>
+  </programme>
+  <programme start="20260323125200 +0800" stop="20260323131600 +0800" channel="2008">
+    <title>大抗战-118 日军暴行</title>
+  </programme>
+  <programme start="20260323131600 +0800" stop="20260323134000 +0800" channel="2008">
+    <title>大抗战-119 敌后战场局部反攻</title>
+  </programme>
+  <programme start="20260323134000 +0800" stop="20260323134900 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323134900 +0800" stop="20260323141100 +0800" channel="2008">
+    <title>五洲四海山东人</title>
+  </programme>
+  <programme start="20260323141100 +0800" stop="20260323150000 +0800" channel="2008">
+    <title>纪录片大泰山</title>
+  </programme>
+  <programme start="20260323150000 +0800" stop="20260323153000 +0800" channel="2008">
+    <title>闪电直播间</title>
+  </programme>
+  <programme start="20260323153000 +0800" stop="20260323160000 +0800" channel="2008">
+    <title>理响中国</title>
+  </programme>
+  <programme start="20260323160000 +0800" stop="20260323160100 +0800" channel="2008">
+    <title>纪录中国片头-人物中国</title>
+  </programme>
+  <programme start="20260323160100 +0800" stop="20260323161000 +0800" channel="2008">
+    <title>光耀齐鲁(新闻频道80集)-51 解文卿</title>
+  </programme>
+  <programme start="20260323161000 +0800" stop="20260323162600 +0800" channel="2008">
+    <title>应急在线</title>
+  </programme>
+  <programme start="20260323162600 +0800" stop="20260323165100 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323165100 +0800" stop="20260323171600 +0800" channel="2008">
+    <title>记住乡愁八</title>
+  </programme>
+  <programme start="20260323171600 +0800" stop="20260323172200 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323172200 +0800" stop="20260323174400 +0800" channel="2008">
+    <title>五洲四海山东人</title>
+  </programme>
+  <programme start="20260323174400 +0800" stop="20260323180000 +0800" channel="2008">
+    <title>共产党员</title>
+  </programme>
+  <programme start="20260323180000 +0800" stop="20260323183000 +0800" channel="2008">
+    <title>健康山东</title>
+  </programme>
+  <programme start="20260323183000 +0800" stop="20260323185700 +0800" channel="2008">
+    <title>山东新闻联播</title>
+  </programme>
+  <programme start="20260323185700 +0800" stop="20260323192500 +0800" channel="2008">
+    <title>记住乡愁</title>
+  </programme>
+  <programme start="20260323192500 +0800" stop="20260323193000 +0800" channel="2008">
+    <title>关注</title>
+  </programme>
+  <programme start="20260323193000 +0800" stop="20260323201500 +0800" channel="2008">
+    <title>闪电大视野</title>
+  </programme>
+  <programme start="20260323201500 +0800" stop="20260323205200 +0800" channel="2008">
+    <title>理响中国</title>
+  </programme>
+  <programme start="20260323205200 +0800" stop="20260323205700 +0800" channel="2008">
+    <title>国宝时刻</title>
+  </programme>
+  <programme start="20260323205700 +0800" stop="20260323210000 +0800" channel="2008">
+    <title>山东省海洋预报</title>
+  </programme>
+  <programme start="20260323210000 +0800" stop="20260323211200 +0800" channel="2008">
+    <title>晚间新闻</title>
+  </programme>
+  <programme start="20260323211200 +0800" stop="20260323211700 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323211700 +0800" stop="20260323214200 +0800" channel="2008">
+    <title>五洲四海山东人</title>
+  </programme>
+  <programme start="20260323214200 +0800" stop="20260323220000 +0800" channel="2008">
+    <title>美丽山东</title>
+  </programme>
+  <programme start="20260323220000 +0800" stop="20260323222700 +0800" channel="2008">
+    <title>山东新闻联播</title>
+  </programme>
+  <programme start="20260323222700 +0800" stop="20260323224400 +0800" channel="2008">
+    <title>共产党员</title>
+  </programme>
+  <programme start="20260323224400 +0800" stop="20260323225200 +0800" channel="2008">
+    <title>体育新闻</title>
+  </programme>
+  <programme start="20260323225200 +0800" stop="20260323225700 +0800" channel="2008">
+    <title>齐鲁先锋</title>
+  </programme>
+  <programme start="20260323225700 +0800" stop="20260323232100 +0800" channel="2008">
+    <title>大抗战-120 豫西鄂北战役</title>
+  </programme>
+  <programme start="20260323232100 +0800" stop="20260323234500 +0800" channel="2008">
+    <title>大抗战-121 湘西战役</title>
+  </programme>
+  <programme start="20260323234500 +0800" stop="20260324020000 +0800" channel="2008">
+    <title>健康山东</title>
   </programme>
   <programme start="20260323002900 +0800" stop="20260323005900 +0800" channel="735">
     <title>名医话健康</title>
@@ -33410,6 +33776,75 @@
   <programme start="20260324234500 +0800" stop="20260325000000 +0800" channel="1967">
     <title>民生剧好看</title>
   </programme>
+  <programme start="20260324001800 +0800" stop="20260324002700 +0800" channel="934">
+    <title>影视气象站</title>
+  </programme>
+  <programme start="20260324002700 +0800" stop="20260324013000 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260324013000 +0800" stop="20260324031000 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260324031000 +0800" stop="20260324032500 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260324032500 +0800" stop="20260324064800 +0800" channel="934">
+    <title>晚间节目结束</title>
+  </programme>
+  <programme start="20260324064800 +0800" stop="20260324070600 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260324070600 +0800" stop="20260324085600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260324085600 +0800" stop="20260324102200 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260324102200 +0800" stop="20260324111400 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260324111400 +0800" stop="20260324113100 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260324113100 +0800" stop="20260324125500 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
+  <programme start="20260324125500 +0800" stop="20260324131800 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260324131800 +0800" stop="20260324151700 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260324151700 +0800" stop="20260324153800 +0800" channel="934">
+    <title>购物时段</title>
+  </programme>
+  <programme start="20260324153800 +0800" stop="20260324164500 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260324164500 +0800" stop="20260324165500 +0800" channel="934">
+    <title>晚间节目开播</title>
+  </programme>
+  <programme start="20260324165500 +0800" stop="20260324184600 +0800" channel="934">
+    <title>五星电影</title>
+  </programme>
+  <programme start="20260324184600 +0800" stop="20260324190900 +0800" channel="934">
+    <title>跟我看电影</title>
+  </programme>
+  <programme start="20260324190900 +0800" stop="20260324205600 +0800" channel="934">
+    <title>好剧跟我看</title>
+  </programme>
+  <programme start="20260324205600 +0800" stop="20260324211200 +0800" channel="934">
+    <title>调剂节目</title>
+  </programme>
+  <programme start="20260324211200 +0800" stop="20260324220700 +0800" channel="934">
+    <title>电影故事会</title>
+  </programme>
+  <programme start="20260324220700 +0800" stop="20260324221800 +0800" channel="934">
+    <title>车影视界</title>
+  </programme>
+  <programme start="20260324221800 +0800" stop="20260325001800 +0800" channel="934">
+    <title>天下电影</title>
+  </programme>
   <programme start="20260324000000 +0800" stop="20260324000100 +0800" channel="933">
     <title>精彩节目</title>
   </programme>
@@ -41599,6 +42034,45 @@
   </programme>
   <programme start="20260324233000 +0800" stop="20260325000000 +0800" channel="1945">
     <title>雪莲花动漫剧场/汉</title>
+  </programme>
+  <programme start="20260324011000 +0800" stop="20260324030000 +0800" channel="1943">
+    <title>天气预报</title>
+  </programme>
+  <programme start="20260324030000 +0800" stop="20260324043000 +0800" channel="1943">
+    <title>经典影院</title>
+  </programme>
+  <programme start="20260324043000 +0800" stop="20260324090000 +0800" channel="1943">
+    <title>午夜影院</title>
+  </programme>
+  <programme start="20260324090000 +0800" stop="20260324094300 +0800" channel="1943">
+    <title>看电影</title>
+  </programme>
+  <programme start="20260324094300 +0800" stop="20260324114000 +0800" channel="1943">
+    <title>生活影院</title>
+  </programme>
+  <programme start="20260324114000 +0800" stop="20260324124000 +0800" channel="1943">
+    <title>新电影传奇</title>
+  </programme>
+  <programme start="20260324124000 +0800" stop="20260324150000 +0800" channel="1943">
+    <title>青春影院</title>
+  </programme>
+  <programme start="20260324150000 +0800" stop="20260324190000 +0800" channel="1943">
+    <title>新疆羊肉串百姓剧</title>
+  </programme>
+  <programme start="20260324190000 +0800" stop="20260324194800 +0800" channel="1943">
+    <title>新电影传奇</title>
+  </programme>
+  <programme start="20260324194800 +0800" stop="20260324201800 +0800" channel="1943">
+    <title>看电影</title>
+  </programme>
+  <programme start="20260324201800 +0800" stop="20260324210000 +0800" channel="1943">
+    <title>新疆羊肉串百姓剧</title>
+  </programme>
+  <programme start="20260324210000 +0800" stop="20260324230000 +0800" channel="1943">
+    <title>钻石影院I</title>
+  </programme>
+  <programme start="20260324230000 +0800" stop="20260325011000 +0800" channel="1943">
+    <title>钻石影院2</title>
   </programme>
   <programme start="20260324003000 +0800" stop="20260324005200 +0800" channel="1942">
     <title>新闻夜班车</title>
